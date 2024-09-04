@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+/**
+ * Utility class for generating random numbers.
+ */
+public class RandomNumberGenerator {
+
+    /**
+     * Generates a list of random integers within a specified range.
+     *
+     * @param count the number of random integers to generate
+     * @param min the minimum value (inclusive) for the random integers
+     * @param max the maximum value (inclusive) for the random integers
+     * @return a list of random integers
+     */
+    public static List<Integer> generateRandomNumbers(int count, int min, int max) {
+        List<Integer> randomNumbers = new ArrayList<>();
+        Random random = new Random();
+
+        for (int i = 0; i < count; i++) {
+            int randomNumber = random.nextInt((max - min) + 1) + min;
+            randomNumbers.add(randomNumber);
+        }
+
+        return randomNumbers;
+    }
+
+    public static void main(String[] args) {
+        // Example usage of the generateRandomNumbers method.
+        int numberOfRandoms = 10;
+        int minValue = 1;
+        int maxValue = 100;
+
+        List<Integer> randomNumbers = generateRandomNumbers(numberOfRandoms, minValue, maxValue);
+
+        // Output the generated random numbers.
+        System.out.println("Generated Random Numbers:");
+        for (int number : randomNumbers) {
+            System.out.println(number);
+        }
+    }
+}
